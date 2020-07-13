@@ -22,11 +22,12 @@ This project has tasks/programs satisfying the assignments
 * passwordless ssh login setup (Ansible Node --> Agent)
 
 ## PythonTask
+
 > How to run/Steps to test the script(s)
-> *fileRename.py* --> renames files based on create timestamp([st_birthtime!]
-> (https://docs.python.org/3/library/os.html#os.stat_result.st_birthtime))
-> *fileRenameAlpha.py* --> renames files with any extensions(.mp3,.wav,.jpg) reverse alphabetically
-> (For eg: abcd.mp3 --> dcba.mp3)
+ *fileRename.py* --> renames files based on create timestamp
+ ([st_birthtime!](https://docs.python.org/3/library/os.html#os.stat_result.st_birthtime))
+ *fileRenameAlpha.py* --> renames files with any extensions(.mp3,.wav,.jpg) reverse alphabetically
+ (For eg: abcd.mp3 --> dcba.mp3)
 
 ```bash
 bash-3.2$ pwd
