@@ -1,6 +1,7 @@
 - hosts: "{{ whichhost }}"
   become: yes
   vars:
+  ##For disabling password logins to ssh
     sshoptions:
     - PasswordAuthentication
     - ChallengeResponseAuthentication
