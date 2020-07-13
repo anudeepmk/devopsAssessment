@@ -93,8 +93,33 @@ logstash        /usr/local/bin/docker-entr ...   Up      0.0.0.0:1025->1025/udp,
 bash-3.2$
 
 ```
+
 > Goto http://localhost:5601 ---> Discover ---> Choose the index pattern as 'nginx' ---> 
   time filter as '@timestamp' ---> Create index pattern ---> Go to Discover and view the logs!
+
+
+- [x] Blue Container
+
+![bluecontainer](/images/bluecontainer.png)
+
+- [x] Green Container
+
+![greencontainer](/images/greencontainer.png)
+
+- [x] HaProxy stats page
+
+![HaProxy stats](/images/haproxystats.png)
+
+- [x] Choose Index Pattern on kibana
+
+![Choose_index_pattern](/images/createindex.png)
+
+- [x] Select timestamp field on kibana
+
+![Select_timestamp_field](/images/timestamp.png)
+
+
+
 
 
 
