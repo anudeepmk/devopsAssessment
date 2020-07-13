@@ -117,9 +117,6 @@ bash-3.2$
 
 ```
 
-> Goto http://localhost:5601 ---> Discover ---> Choose the index pattern as 'nginx' ---> 
-  time filter as '@timestamp' ---> Create index pattern ---> Go to Discover and view the logs!
-
 
 - [x] Blue Container
 
@@ -132,6 +129,11 @@ bash-3.2$
 - [x] HaProxy stats page
 
 ![HaProxy stats](/images/haproxystats.png)
+
+
+> Goto http://localhost:5601 ---> Discover ---> Choose the index pattern as 'nginx' ---> 
+  time filter as '@timestamp' ---> Create index pattern ---> Go to Discover and view the logs!
+  
 
 - [x] Choose Index Pattern on kibana
 
@@ -156,8 +158,9 @@ bash-3.2$
   *postgresql_version: "10"* mentioned in postgresqlRole/defaults/main.yml
 
 > The play *otherTasks.yml* consists of firewall rules,ssh deny password logins,postgresql dump scheduling
-  To run the ansible playbook
-  ansible-playbook setup_tasks.yml -e "whichhost=<REMOTENODE>"  
+
+> To run the ansible playbook
+  ansible-playbook setup_tasks.yml -e "whichhost=REMOTENODE"  
 
 
 
