@@ -5,8 +5,13 @@ This project has tasks/programs satisfying the assignments
 
 ## Contents
 
-* [Prerequisites](#pre requisites)
+* [Prerequisites](#prerequisites)
 * [PythonTask](#pythontask)
+* [AnsiblePostgresql](#ansiblepostgresql)
+* [Techstack](#techstack)
+
+
+
 
 
 ## Prerequisites
@@ -126,11 +131,11 @@ bash-3.2$
 
 
 
+## AnsiblePostgresql
 
 
 
-
-## Tech stack used
+## Techstack
 
 * Python
 * Docker 
