@@ -11,6 +11,8 @@ else:
 
 ##For 3 padded integer count which increments per file
 count = 0
+##Traverse to directory containing files to be renamed
+os.chdir(pathtoDir)
 
 def multiple_file_types(*patterns):
     return itertools.chain.from_iterable(glob.iglob(pathtoDir + '/' + pattern, recursive=True) for pattern in patterns)
