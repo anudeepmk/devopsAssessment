@@ -58,6 +58,43 @@ bash-3.2$
 
 ```
 
+### HaProxy Task
+> How to run/start the docker-compose stack (and in what order)
+
+```bash
+
+bash-3.2$ pwd
+/Users/anudeep.koliwad/haproxyTask/docker-elk
+bash-3.2$ docker network create web ##create external network which haproxy stack and elk stack are bound
+2d8daae33f5d3abcd654584ad10b2b1bfb449a9622713d9536c9ed7b761d8f2e
+bash-3.2$ docker-compose up -d ##starting elk first as nginx containers fail if logstash isn't found
+Creating elasticsearch ... done
+Creating kibana        ... done
+Creating logstash      ... done
+bash-3.2$ cd /Users/anudeep.koliwad/haproxyTask/
+bash-3.2$ docker-compose up -d
+Creating blue  ... done
+Creating green ... done
+Creating lb    ... done
+bash-3.2$ docker-compose ps
+Name               Command               State                   Ports
+---------------------------------------------------------------------------------------
+blue    /docker-entrypoint.sh ngin ...   Up      80/tcp
+green   /docker-entrypoint.sh ngin ...   Up      80/tcp
+lb      /docker-entrypoint.sh hapr ...   Up      0.0.0.0:80->80/tcp, 0.0.0.0:81->81/tcp
+bash-3.2$ cd -
+/Users/anudeep.koliwad/haproxyTask/docker-elk
+bash-3.2$ docker-compose ps
+    Name                   Command               State                                          Ports
+---------------------------------------------------------------------------------------------------------------------------------------------
+elasticsearch   /usr/local/bin/docker-entr ...   Up      127.0.0.1:9200->9200/tcp, 127.0.0.1:9300->9300/tcp
+kibana          /usr/local/bin/kibana-docker     Up      127.0.0.1:5601->5601/tcp
+logstash        /usr/local/bin/docker-entr ...   Up      0.0.0.0:1025->1025/udp, 127.0.0.1:5000->5000/tcp, 5044/tcp, 127.0.0.1:9600->9600/tcp
+bash-3.2$
+
+```
+> Goto http://localhost:5601 ---> Discover ---> Choose the index pattern as 'nginx' ---> 
+  time filter as '@timestamp' ---> Create index pattern ---> Go to Discover and view the logs!
 
 
 
