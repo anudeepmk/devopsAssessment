@@ -17,7 +17,7 @@
     port: '5432'
     direction: in
     comment: Allow postgresql connections
-    state: "{{ ufw_state | default('disabled') }}"
+    state: "{{ ufw_state | default('disabled') }}" ##disabling firewall set ufw_state --> enabled if needed
 
 - name: Create postgresql backup dir
   file:
