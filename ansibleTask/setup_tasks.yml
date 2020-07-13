@@ -1,0 +1,12 @@
+- hosts: "{{ whichhost }}"
+  become: yes
+  vars:
+    sshoptions:
+    - PasswordAuthentication
+    - ChallengeResponseAuthentication
+    postgresql_backupDir: "/var/lib/postgresql/backupDir"  
+  roles:
+  - postgresqlRole
+  tasks:
+  ##For setting firewall,ssh restrictions and cron for postgresql dump
+  - import_tasks: otherTasks.yml

@@ -1,0 +1,67 @@
+---
+
+# `restarted` or `reloaded`
+postgresql_restarted_state: "restarted"
+
+postgresql_python_library: python-psycopg2
+postgresql_user: postgres
+postgresql_group: postgres
+
+##mentioning version explicitly (if not chosen as per ubuntu versions)
+postgresql_version: "10"
+postgresql_daemon: "postgresql@{{ postgresql_version }}-main"
+
+postgresql_unix_socket_directories:
+  - /var/run/postgresql
+
+postgresql_service_state: started
+postgresql_service_enabled: true
+
+# Global configuration options that will be set in postgresql.conf.
+postgresql_global_config_options:
+  - option: unix_socket_directories
+    value: '{{ postgresql_unix_socket_directories | join(",") }}'
+
+# Host based authentication (hba) entries to be added to the pg_hba.conf
+postgresql_hba_entries:
+  - {type: local, database: all, user: postgres, auth_method: peer}
+  - {type: local, database: all, user: all, auth_method: md5}
+  - {type: host, database: all, user: all, address: '10.231.0.0/16', auth_method: md5} ##enable only from specific IP for remote connections
+
+# Locales for debian OSes.
+postgresql_locales:
+  - 'en_US.UTF-8'
+
+# Databases to ensure exist.
+postgresql_databases:
+ - name: testdb # required; the rest are optional
+#   login_host: # defaults to 'localhost'
+#   login_password: # defaults to not set
+#   login_user: # defaults to '{{ postgresql_user }}'
+#   login_unix_socket: # defaults to 1st of postgresql_unix_socket_directories
+#   port: # defaults to not set
+#   owner: # defaults to postgresql_user
+#   state: # defaults to 'present' 
+#   lc_collate: # defaults to 'en_US.UTF-8'
+#   lc_ctype: # defaults to 'en_US.UTF-8'
+#   encoding: # defaults to 'UTF-8'
+#   template: # defaults to 'template0'
+
+# Users to ensure exist.
+##clear text passwords not recommended in production(You might want to use ansible-vault)
+postgresql_users:
+ - name: testuser #required; the rest are optional
+   password: testpass # defaults to not set
+#   login_password: # defaults to not set
+#   login_user: # defaults to '{{ postgresql_user }}'
+#   login_unix_socket: # defaults to 1st of postgresql_unix_socket_directories
+#   port: # defaults to not set
+#   state: # defaults to 'present'   
+#   encrypted: # defaults to not set
+#   priv: # defaults to not set
+#   role_attr_flags: # defaults to not set
+#   db: # defaults to not set
+#   login_host: # defaults to 'localhost'
+
+# Whether to output user data when managing users.
+postgres_users_no_log: true

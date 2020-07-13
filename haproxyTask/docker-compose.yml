@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+  web_blue:
+    image: nginx:1.19-alpine
+    container_name: blue
+    volumes:
+    - type: bind
+      source: ./nginxConfig
+      target: /etc/nginx/nginx.conf    
+    - type: bind
+      source: ./htmlPage_blue
+      target: /usr/share/nginx/html/index.html    
+    networks:
+    - web
+  web_green:
+    image: nginx:1.19-alpine
+    container_name: green
+    volumes:
+    - type: bind
+      source: ./nginxConfig
+      target: /etc/nginx/nginx.conf   
+    - type: bind
+      source: ./htmlPage_green
+      target: /usr/share/nginx/html/index.html    
+    networks:
+    - web
+  haproxy_lb:
+    image: haproxy:1.7
+    container_name: lb
+    volumes:
+    - type: bind
+      source: ./haproxyConfig
+      target: /usr/local/etc/haproxy/haproxy.cfg
+    ports:
+    - 80:80
+    - 81:81
+    networks:
+    - web
+networks:
+  web:
+    external: true

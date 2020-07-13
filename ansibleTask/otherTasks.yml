@@ -1,0 +1,34 @@
+---
+- name: ssh no password logins
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: '^{{ item }} yes$'
+    replace: '{{ item }} no'
+  loop: "{{ sshoptions }}"
+  register: sshchange
+
+- name: restart sshd
+  service: name=sshd state=restarted
+  when: sshchange is changed
+- name: Allow postgresql connections
+  ufw:
+    rule: allow
+    proto: tcp
+    port: '5432'
+    direction: in
+    comment: Allow postgresql connections
+    state: "{{ ufw_state | default('disabled') }}"
+
+- name: Create postgresql backup dir
+  file:
+    path: "{{ postgresql_backupDir }}"
+    state: directory
+  become: yes
+  become_user: postgres
+
+- name: postgresql backup "daily time"
+  cron:
+    name: "daily dump Postgresql"
+    special_time: daily
+    job: "pg_dumpall > {{ postgresql_backupDir }}/db_bkp_$(date +'%Y-%m-%d').sql"
+    user: postgres
