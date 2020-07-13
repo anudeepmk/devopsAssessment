@@ -133,6 +133,135 @@ bash-3.2$
 
 ## AnsiblePostgresql
 
+```bash
+
+bash-3.2$ pwd
+/Users/anudeep.koliwad/SantanderTasks/ansibleTask
+bash-3.2$ ls
+otherTasks.yml    postgresqlRole    setup_tasks.yml
+bash-3.2$ ansible-playbook setup_tasks.yml -e "whichhost=anudeeptestnode"
+
+PLAY [anudeeptestnode] ***********************************************************************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
+included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/variables.yml for anudeeptestnode
+
+TASK [postgresqlRole : Include OS-specific variables (Debian).] ***********************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : Define postgresql_packages.] ***********************************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : Define postgresql_version.] ************************************************************************************************************************************************
+skipping: [anudeeptestnode]
+
+TASK [postgresqlRole : Define postgresql_daemon.] *************************************************************************************************************************************************
+skipping: [anudeeptestnode]
+
+TASK [postgresqlRole : Define postgresql_data_dir.] ***********************************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : Define postgresql_bin_path.] ***********************************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : Define postgresql_config_path.] ********************************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : Define postgresql_unix_socket_directories_mode.] ***************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
+included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/setup-Ubuntu.yml for anudeeptestnode
+
+TASK [postgresqlRole : Install PostgreSQL python libs] ********************************************************************************************************************************************
+[WARNING]: Could not find aptitude. Using apt-get instead
+
+changed: [anudeeptestnode]
+
+TASK [postgresqlRole : Ensure PostgreSQL packages are installed.] *********************************************************************************************************************************
+changed: [anudeeptestnode]
+
+TASK [postgresqlRole : Ensure locales present] ****************************************************************************************************************************************************
+ok: [anudeeptestnode] => (item=en_US.UTF-8)
+
+TASK [postgresqlRole : Force-restart PostgreSQL (locales)] ****************************************************************************************************************************************
+skipping: [anudeeptestnode]
+
+TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
+included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/initialize.yml for anudeeptestnode
+
+TASK [postgresqlRole : PostgreSQL environment vars.] **********************************************************************************************************************************************
+changed: [anudeeptestnode]
+
+TASK [postgresqlRole : Check PostgreSQL data dir exists] ******************************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : Check PostgreSQL database initialized.] ************************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : Initialize PostgreSQL database] ********************************************************************************************************************************************
+skipping: [anudeeptestnode]
+
+TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
+included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/configure.yml for anudeeptestnode
+
+TASK [postgresqlRole : Configure global settings.] ************************************************************************************************************************************************
+changed: [anudeeptestnode] => (item={'option': 'unix_socket_directories', 'value': '/var/run/postgresql'})
+
+TASK [postgresqlRole : Configure pg_hba values] ***************************************************************************************************************************************************
+changed: [anudeeptestnode]
+
+TASK [postgresqlRole : Check postgresql unix sock dirs exist] *************************************************************************************************************************************
+ok: [anudeeptestnode] => (item=/var/run/postgresql)
+
+TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
+included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/restart.yml for anudeeptestnode
+
+TASK [postgresqlRole : start postgresql now and on boot] ******************************************************************************************************************************************
+ok: [anudeeptestnode]
+
+TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
+included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/users.yml for anudeeptestnode
+
+TASK [postgresqlRole : Ensure PostgreSQL users are present.] **************************************************************************************************************************************
+changed: [anudeeptestnode] => (item=None)
+changed: [anudeeptestnode]
+
+TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
+included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/databases.yml for anudeeptestnode
+
+TASK [postgresqlRole : Create postgresql databases needed.] ***************************************************************************************************************************************
+changed: [anudeeptestnode] => (item={'name': 'testdb'})
+
+TASK [ssh no password logins] *********************************************************************************************************************************************************************
+changed: [anudeeptestnode] => (item=PasswordAuthentication)
+changed: [anudeeptestnode] => (item=ChallengeResponseAuthentication)
+
+TASK [restart sshd] *******************************************************************************************************************************************************************************
+changed: [anudeeptestnode]
+
+TASK [Allow postgresql connections] ***************************************************************************************************************************************************************
+changed: [anudeeptestnode]
+
+TASK [Create postgresql backup dir] ***************************************************************************************************************************************************************
+changed: [anudeeptestnode]
+
+TASK [postgresql backup "daily time"] *************************************************************************************************************************************************************
+changed: [anudeeptestnode]
+
+RUNNING HANDLER [postgresqlRole : restart postgresql] *********************************************************************************************************************************************
+changed: [anudeeptestnode]
+
+PLAY RECAP ****************************************************************************************************************************************************************************************
+anudeeptestnode : ok=32   changed=13   unreachable=0    failed=0    skipped=4    rescued=0    ignored=0
+
+bash-3.2$
+
+```
+
 
 
 ## Techstack
