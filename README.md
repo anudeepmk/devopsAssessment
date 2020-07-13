@@ -133,10 +133,20 @@ bash-3.2$
 
 ## AnsiblePostgresql
 
+> Check the postgresqlRole/defaults/main.yml for default variables
+  This role installs on versions of Ubuntu(18-20) and installs postgresql accordingly
+  
+> This role is tested on *Ubuntu 18.04* with 
+  *postgresql_version: "10"* mentioned in postgresqlRole/defaults/main.yml
+
+> The play *otherTasks.yml* consists of firewall rules,ssh deny password logins,postgresql dump scheduling  
+
+
+
 ```bash
 
 bash-3.2$ pwd
-/Users/anudeep.koliwad/SantanderTasks/ansibleTask
+/Users/anudeep.koliwad/ansibleTask
 bash-3.2$ ls
 otherTasks.yml    postgresqlRole    setup_tasks.yml
 bash-3.2$ ansible-playbook setup_tasks.yml -e "whichhost=anudeeptestnode"
@@ -147,7 +157,7 @@ TASK [Gathering Facts] *********************************************************
 ok: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/variables.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/variables.yml for anudeeptestnode
 
 TASK [postgresqlRole : Include OS-specific variables (Debian).] ***********************************************************************************************************************************
 ok: [anudeeptestnode]
@@ -174,7 +184,7 @@ TASK [postgresqlRole : Define postgresql_unix_socket_directories_mode.] ********
 ok: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/setup-Ubuntu.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/setup-Ubuntu.yml for anudeeptestnode
 
 TASK [postgresqlRole : Install PostgreSQL python libs] ********************************************************************************************************************************************
 [WARNING]: Could not find aptitude. Using apt-get instead
@@ -191,7 +201,7 @@ TASK [postgresqlRole : Force-restart PostgreSQL (locales)] *********************
 skipping: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/initialize.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/initialize.yml for anudeeptestnode
 
 TASK [postgresqlRole : PostgreSQL environment vars.] **********************************************************************************************************************************************
 changed: [anudeeptestnode]
@@ -206,7 +216,7 @@ TASK [postgresqlRole : Initialize PostgreSQL database] *************************
 skipping: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/configure.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/configure.yml for anudeeptestnode
 
 TASK [postgresqlRole : Configure global settings.] ************************************************************************************************************************************************
 changed: [anudeeptestnode] => (item={'option': 'unix_socket_directories', 'value': '/var/run/postgresql'})
@@ -218,20 +228,20 @@ TASK [postgresqlRole : Check postgresql unix sock dirs exist] ******************
 ok: [anudeeptestnode] => (item=/var/run/postgresql)
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/restart.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/restart.yml for anudeeptestnode
 
 TASK [postgresqlRole : start postgresql now and on boot] ******************************************************************************************************************************************
 ok: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/users.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/users.yml for anudeeptestnode
 
 TASK [postgresqlRole : Ensure PostgreSQL users are present.] **************************************************************************************************************************************
 changed: [anudeeptestnode] => (item=None)
 changed: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/SantanderTasks/ansibleTask/postgresqlRole/tasks/databases.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/databases.yml for anudeeptestnode
 
 TASK [postgresqlRole : Create postgresql databases needed.] ***************************************************************************************************************************************
 changed: [anudeeptestnode] => (item={'name': 'testdb'})
