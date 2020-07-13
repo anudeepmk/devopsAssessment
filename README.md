@@ -23,6 +23,9 @@ This project has tasks/programs satisfying the assignments
 
 ## PythonTask
 > How to run/Steps to test the script(s)
+> *fileRename.py* --> renames files based on create timestamp([st_birthtime!](https://docs.python.org/3/library/os.html#os.stat_result.st_birthtime))
+> *fileRenameAlpha.py* --> renames files with any extensions(.mp3,.wav,.jpg) reverse alphabetically
+  (For eg: abcd.mp3 --> dcba.mp3)
 
 ```bash
 bash-3.2$ pwd
@@ -143,7 +146,9 @@ bash-3.2$
 > This role is tested on *Ubuntu 18.04* with 
   *postgresql_version: "10"* mentioned in postgresqlRole/defaults/main.yml
 
-> The play *otherTasks.yml* consists of firewall rules,ssh deny password logins,postgresql dump scheduling  
+> The play *otherTasks.yml* consists of firewall rules,ssh deny password logins,postgresql dump scheduling
+  To run the ansible playbook
+  ansible-playbook setup_tasks.yml -e "whichhost=<REMOTENODE>"  
 
 
 
