@@ -26,12 +26,12 @@ This project has tasks/programs satisfying the assignments
 
 ```bash
 bash-3.2$ pwd
-/Users/anudeep.koliwad/pythonTask
+/Users/anudeep.koliwad/devopsAssessment/pythonTask
 bash-3.2$ mkdir filesDir
 bash-3.2$ touch filesDir/files{1..20}.wav
 bash-3.2$ touch filesDir/files{1..20}.mp4
-bash-3.2$ python3 fileRename.py /Users/anudeep.koliwad/pythonTask/filesDir audiofile wav
-bash-3.2$ cd /Users/anudeep.koliwad/pythonTask/filesDir
+bash-3.2$ python3 fileRename.py /Users/anudeep.koliwad/devopsAssessment/pythonTask/filesDir audiofile wav
+bash-3.2$ cd /Users/anudeep.koliwad/devopsAssessment/pythonTask/filesDir
 bash-3.2$ ls
 audiofile_2020-07-13_000.wav    audiofile_2020-07-13_007.wav    audiofile_2020-07-13_014.wav    files10.mp4            files17.mp4            files5.mp4
 audiofile_2020-07-13_001.wav    audiofile_2020-07-13_008.wav    audiofile_2020-07-13_015.wav    files11.mp4            files18.mp4            files6.mp4
@@ -41,9 +41,9 @@ audiofile_2020-07-13_004.wav    audiofile_2020-07-13_011.wav    audiofile_2020-0
 audiofile_2020-07-13_005.wav    audiofile_2020-07-13_012.wav    audiofile_2020-07-13_019.wav    files15.mp4            files3.mp4
 audiofile_2020-07-13_006.wav    audiofile_2020-07-13_013.wav    files1.mp4            files16.mp4            files4.mp4
 bash-3.2$ cd -
-/Users/anudeep.koliwad/pythonTask
-bash-3.2$ python3 fileRename.py /Users/anudeep.koliwad/pythonTask/filesDir videofile mp4
-bash-3.2$ cd /Users/anudeep.koliwad/pythonTask/filesDir
+/Users/anudeep.koliwad/devopsAssessment/pythonTask
+bash-3.2$ python3 fileRename.py /Users/anudeep.koliwad/devopsAssessment/pythonTask/filesDir videofile mp4
+bash-3.2$ cd /Users/anudeep.koliwad/devopsAssessment/pythonTask/filesDir
 bash-3.2$ ls
 audiofile_2020-07-13_000.wav    audiofile_2020-07-13_007.wav    audiofile_2020-07-13_014.wav    videofile_2020-07-13_001.mp4    videofile_2020-07-13_008.mp4    videofile_2020-07-13_015.mp4
 audiofile_2020-07-13_001.wav    audiofile_2020-07-13_008.wav    audiofile_2020-07-13_015.wav    videofile_2020-07-13_002.mp4    videofile_2020-07-13_009.mp4    videofile_2020-07-13_016.mp4
@@ -56,13 +56,13 @@ bash-3.2$
 
 ##Below script is for renaming in reverse alphabetical order
 bash-3.2$ pwd
-/Users/anudeep.koliwad/pythonTask
+/Users/anudeep.koliwad/devopsAssessment/pythonTask
 bash-3.2$ mkdir filesDir
 bash-3.2$ cd filesDir/
 bash-3.2$ touch resolution.wav reflection.mp4 compromise.jpg decoration.mp3 literature.jpeg presidency.mp3 articulate.wav2 prevalence.gif accessible.png illustrate.nef
 bash-3.2$ cd ..
-bash-3.2$ python3 fileRenameAlpha.py /Users/anudeep.koliwad/pythonTask/filesDir mp3
-bash-3.2$ cd /Users/anudeep.koliwad/pythonTask/filesDir
+bash-3.2$ python3 fileRenameAlpha.py /Users/anudeep.koliwad/devopsAssessment/pythonTask/filesDir mp3
+bash-3.2$ cd /Users/anudeep.koliwad/devopsAssessment/pythonTask/filesDir
 bash-3.2$ ls
 accessible.png    articulate.wav2    compromise.jpg    illustrate.nef    literature.jpeg    prevalence.gif    reflection.mp4    resolution.wav    trooniedca.mp3    ysrpnieedc.mp3
 bash-3.2$
@@ -75,14 +75,14 @@ bash-3.2$
 ```bash
 
 bash-3.2$ pwd
-/Users/anudeep.koliwad/haproxyTask/docker-elk
+/Users/anudeep.koliwad/devopsAssessment/haproxyTask/docker-elk
 bash-3.2$ docker network create web ##create external network which haproxy stack and elk stack are bound
 2d8daae33f5d3abcd654584ad10b2b1bfb449a9622713d9536c9ed7b761d8f2e
 bash-3.2$ docker-compose up -d ##starting elk first as nginx containers fail if logstash isn't found
 Creating elasticsearch ... done
 Creating kibana        ... done
 Creating logstash      ... done
-bash-3.2$ cd /Users/anudeep.koliwad/haproxyTask/
+bash-3.2$ cd /Users/anudeep.koliwad/devopsAssessment/haproxyTask/
 bash-3.2$ docker-compose up -d
 Creating blue  ... done
 Creating green ... done
@@ -94,7 +94,7 @@ blue    /docker-entrypoint.sh ngin ...   Up      80/tcp
 green   /docker-entrypoint.sh ngin ...   Up      80/tcp
 lb      /docker-entrypoint.sh hapr ...   Up      0.0.0.0:80->80/tcp, 0.0.0.0:81->81/tcp
 bash-3.2$ cd -
-/Users/anudeep.koliwad/haproxyTask/docker-elk
+/Users/anudeep.koliwad/devopsAssessment/haproxyTask/docker-elk
 bash-3.2$ docker-compose ps
     Name                   Command               State                                          Ports
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -146,7 +146,7 @@ bash-3.2$
 ```bash
 
 bash-3.2$ pwd
-/Users/anudeep.koliwad/ansibleTask
+/Users/anudeep.koliwad/devopsAssessment/ansibleTask
 bash-3.2$ ls
 otherTasks.yml    postgresqlRole    setup_tasks.yml
 bash-3.2$ ansible-playbook setup_tasks.yml -e "whichhost=anudeeptestnode"
@@ -157,7 +157,7 @@ TASK [Gathering Facts] *********************************************************
 ok: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/variables.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/devopsAssessment/ansibleTask/postgresqlRole/tasks/variables.yml for anudeeptestnode
 
 TASK [postgresqlRole : Include OS-specific variables (Debian).] ***********************************************************************************************************************************
 ok: [anudeeptestnode]
@@ -184,7 +184,7 @@ TASK [postgresqlRole : Define postgresql_unix_socket_directories_mode.] ********
 ok: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/setup-Ubuntu.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/devopsAssessment/ansibleTask/postgresqlRole/tasks/setup-Ubuntu.yml for anudeeptestnode
 
 TASK [postgresqlRole : Install PostgreSQL python libs] ********************************************************************************************************************************************
 [WARNING]: Could not find aptitude. Using apt-get instead
@@ -201,7 +201,7 @@ TASK [postgresqlRole : Force-restart PostgreSQL (locales)] *********************
 skipping: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/initialize.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/devopsAssessment/ansibleTask/postgresqlRole/tasks/initialize.yml for anudeeptestnode
 
 TASK [postgresqlRole : PostgreSQL environment vars.] **********************************************************************************************************************************************
 changed: [anudeeptestnode]
@@ -216,7 +216,7 @@ TASK [postgresqlRole : Initialize PostgreSQL database] *************************
 skipping: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/configure.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/devopsAssessment/ansibleTask/postgresqlRole/tasks/configure.yml for anudeeptestnode
 
 TASK [postgresqlRole : Configure global settings.] ************************************************************************************************************************************************
 changed: [anudeeptestnode] => (item={'option': 'unix_socket_directories', 'value': '/var/run/postgresql'})
@@ -228,20 +228,20 @@ TASK [postgresqlRole : Check postgresql unix sock dirs exist] ******************
 ok: [anudeeptestnode] => (item=/var/run/postgresql)
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/restart.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/devopsAssessment/ansibleTask/postgresqlRole/tasks/restart.yml for anudeeptestnode
 
 TASK [postgresqlRole : start postgresql now and on boot] ******************************************************************************************************************************************
 ok: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/users.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/devopsAssessment/ansibleTask/postgresqlRole/tasks/users.yml for anudeeptestnode
 
 TASK [postgresqlRole : Ensure PostgreSQL users are present.] **************************************************************************************************************************************
 changed: [anudeeptestnode] => (item=None)
 changed: [anudeeptestnode]
 
 TASK [postgresqlRole : include_tasks] *************************************************************************************************************************************************************
-included: /Users/anudeep.koliwad/ansibleTask/postgresqlRole/tasks/databases.yml for anudeeptestnode
+included: /Users/anudeep.koliwad/devopsAssessment/ansibleTask/postgresqlRole/tasks/databases.yml for anudeeptestnode
 
 TASK [postgresqlRole : Create postgresql databases needed.] ***************************************************************************************************************************************
 changed: [anudeeptestnode] => (item={'name': 'testdb'})
