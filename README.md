@@ -25,9 +25,16 @@ This project has tasks/programs satisfying the assignments
 
 > How to run/Steps to test the script(s)
  *fileRename.py* --> renames files based on create timestamp
- ([st_birthtime!](https://docs.python.org/3/library/os.html#os.stat_result.st_birthtime))
+ ([st_birthtime](https://docs.python.org/3/library/os.html#os.stat_result.st_birthtime))
  *fileRenameAlpha.py* --> renames files with any extensions(.mp3,.wav,.jpg) reverse alphabetically
  (For eg: abcd.mp3 --> dcba.mp3)
+ 
+> To rename files based on extension ---> python3 fileRename.py fullpathtodirectory prefix suffix
+ 
+> To rename files reverse alphabetically ---> python3 fileRenameAlpha.py fullpathtodirectory suffix
+
+> Examples/illustrations are mentioned below
+ 
 
 ```bash
 bash-3.2$ pwd
