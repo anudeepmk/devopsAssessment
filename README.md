@@ -3,6 +3,12 @@
 
 This project has tasks/programs satisfying the assignments
 
+## Contents
+
+* [Prerequisites](#pre requisites)
+* [PythonTask](#pythontask)
+
+
 ## Prerequisites
 
 * Docker, docker-compose installed
@@ -10,7 +16,7 @@ This project has tasks/programs satisfying the assignments
 * Ansible 
 * passwordless ssh login setup (Ansible Node --> Agent)
 
-### Python Task
+## PythonTask
 > How to run/Steps to test the script(s)
 
 ```bash
@@ -58,7 +64,7 @@ bash-3.2$
 
 ```
 
-### HaProxy Task
+## HaProxy Task
 > How to run/start the docker-compose stack (and in what order)
 
 ```bash
