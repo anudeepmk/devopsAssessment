@@ -130,6 +130,10 @@ bash-3.2$
 ![Select_timestamp_field](/images/timestamp.png)
 
 
+- [x] View the logs on kibana
+
+![view_logs_kibana](/images/kibanalogs.png)
+
 
 ## AnsiblePostgresql
 
